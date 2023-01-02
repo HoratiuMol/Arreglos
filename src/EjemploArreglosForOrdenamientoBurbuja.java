@@ -38,9 +38,8 @@ public class EjemploArreglosForOrdenamientoBurbuja {
                 contador++;
             }
         }
-        System.out.println("contador = " + contador);
 
-        
+        System.out.println("contador = " + contador);
 
         //Arrays.sort(productos); //ordenarsiempre antes de mostrar o iterrar lo elementos
         //arregloinverso(productos);
