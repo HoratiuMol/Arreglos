@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Objects;
 
 public class EjemploArreglosForOrdenamientoBurbuja {
 
@@ -17,6 +18,26 @@ public class EjemploArreglosForOrdenamientoBurbuja {
         }
     }
 
+    public static void sortBurbuja(Object[] arreglo){
+
+        int total = arreglo.length;
+        int contador=0;
+
+
+        for(int i =0;i<arreglo.length ;i++){
+
+            for(int j=0;j< arreglo.length-1-i;j++){
+                if( ((Comparable) arreglo[j+1]).compareTo(arreglo[j]) <0 ){
+                    Object auxiliar=arreglo[i];
+                    arreglo[j]=arreglo[j+1];
+                    arreglo[j+1]=auxiliar;
+                }
+                contador++;
+            }
+        }
+        System.out.println("contador = " + contador);
+    }
+
     public static void main(String[] args) {
 
         //String[] productos = new String[7];
@@ -26,20 +47,9 @@ public class EjemploArreglosForOrdenamientoBurbuja {
         ,"Asus Notebook","Macbook air","ChromeCast 4ta Gen","Bicicleta oxford"};
 
         int total= productos.length;
-        int contador=0;
-        
-        for(int i =0;i<total;i++){
-            for(int j=0;j<total;j++){
-                if(productos[i].compareTo(productos[j]) <0 ){
-                    String auxiliar=productos[i];
-                    productos[i]=productos[j];
-                    productos[j]=auxiliar;
-                }
-                contador++;
-            }
-        }
+        sortBurbuja(productos);
 
-        System.out.println("contador = " + contador);
+
 
         //Arrays.sort(productos); //ordenarsiempre antes de mostrar o iterrar lo elementos
         //arregloinverso(productos);
@@ -53,5 +63,18 @@ public class EjemploArreglosForOrdenamientoBurbuja {
             System.out.println("para indice " + i + " : " + productos[i]);
         }
 
+
+        Integer[] numeros = new Integer[4];
+
+        numeros[0]=10;
+        numeros[1]=Integer.valueOf("7");
+        numeros[2]=35;
+        numeros[3]=-1;
+
+        sortBurbuja(numeros);
+
+        for(int i=0;i<numeros.length;i++){
+            System.out.println("i = " + i + " : " + numeros[i]);
+        }
     }
 }
